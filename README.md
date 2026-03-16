@@ -1,4 +1,6 @@
-📸 Screenshots
+<p align="center">
+<img src="https://raw.githubusercontent.com/prince4you/sherlock/main/sherlock.png" width="800">
+</p>
 ## 🌟 Overview
 
 **Sherlock ** is a sophisticated bash-based installation and management system designed specifically for Termux environments. It automates the deployment of the renowned [Sherlock Project](https://github.com/sherlock-project/sherlock) - a powerful OSINT tool capable of hunting down social media accounts by username across 400+ social networks.

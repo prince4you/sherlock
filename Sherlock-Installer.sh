@@ -120,7 +120,7 @@ install_pkg() {
         ok "$1 installed"
     else
         time_now "$(arrow "Installing $1...")"
-        pkg install -y $1 >/dev/null 2>&1
+        pkg install -y $1
         ok "$1 installed"
     fi
 }
@@ -171,7 +171,7 @@ install_sherlock() {
     
     # Try pip first
     time_now "$(arrow "Installing via pip...")"
-    if pip install sherlock-project >/dev/null 2>&1; then
+    if pip install sherlock-project
         ok "Sherlock installed successfully"
     else
         # Git backup
@@ -187,7 +187,7 @@ install_sherlock() {
         
         cd "$SHERLOCK_DIR"
         time_now "$(arrow "Installing requirements...")"
-        pip install -r requirements.txt >/dev/null 2>&1
+        pip install -r requirements.txt
         ok "Sherlock installed via git"
         cd - >/dev/null
     fi
@@ -241,14 +241,14 @@ update_sherlock() {
     
     if pip list | grep -q "sherlock-project"; then
         time_now "$(arrow "Updating pip package...")"
-        pip install --upgrade sherlock-project >/dev/null 2>&1
+        pip install --upgrade sherlock-project
         ok "Sherlock updated"
     elif [[ -d "$SHERLOCK_DIR" ]]; then
         cd "$SHERLOCK_DIR"
         time_now "$(arrow "Updating repository...")"
         git pull >/dev/null 2>&1
         time_now "$(arrow "Updating requirements...")"
-        pip install -r requirements.txt --upgrade >/dev/null 2>&1
+        pip install -r requirements.txt --upgrade
         ok "Sherlock updated"
         cd - >/dev/null
     else
@@ -269,7 +269,7 @@ repair_sherlock() {
     
     if command -v sherlock >/dev/null 2>&1; then
         time_now "$(arrow "Reinstalling package...")"
-        pip install --force-reinstall sherlock-project >/dev/null 2>&1
+        pip install --force-reinstall sherlock-project
     elif [[ -d "$SHERLOCK_DIR" ]]; then
         cd "$SHERLOCK_DIR"
         time_now "$(arrow "Reinstalling requirements...")"
@@ -353,7 +353,7 @@ main_install() {
     
     # Setup pip
     time_now "$(info "Setting up pip...")"
-    pip install --upgrade pip >/dev/null 2>&1
+    pip install --upgrade pip 
     
     # Install Python modules
     info "Installing Python modules..."
